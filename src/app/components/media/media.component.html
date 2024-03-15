@@ -1,0 +1,46 @@
+<h1 class="alert alert-info">VeggiMedia</h1>
+<div class="row">
+  <section class="col-6">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let media of MEDIA">
+        <h5>{{ media.title }}</h5>
+        <p>Year: {{ media.releaseYear }}</p>
+        <p>Type: {{ media.type }}</p>
+        <p>Provider: {{ media.provider }}</p>
+        <p>Rating: {{ media.rating }}</p>
+        <button class="btn btn-primary" (click)="onSelect(media)">Edit</button>
+      </li>
+    </ul>
+  </section>
+  <section class="col-6">
+    <form method="post">
+      <fieldset>
+        <label for="type">Type: *</label>
+        <select name="type" id="type">
+          <option>Book</option>
+          <option>Game</option>
+          <option>Movie</option>
+          <option>Music</option>
+          <option>TV</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <label for="title">Title: *</label>
+        <input name="title" id="title" required />
+      </fieldset>
+      <fieldset>
+        <label for="releaseYear">Release Year: </label>
+        <input type="number" name="releaseYear" id="releaseYear" min="1500" />
+      </fieldset>
+      <fieldset>
+        <label for="provider">Provider: *</label>
+        <input name="provider" id="provider" required />
+      </fieldset>
+      <fieldset>
+        <label for="rating">5-Star Rating: *</label>
+        <input type="number" name="rating" id="rating" min="1" max="5" />
+      </fieldset>
+      <button class="btn btn-primary offset-2">Save</button>
+    </form>
+  </section>
+</div>
