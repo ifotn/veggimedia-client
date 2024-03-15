@@ -13,10 +13,10 @@
     </ul>
   </section>
   <section class="col-6">
-    <form method="post">
+    <form *ngIf="selectedMedia">
       <fieldset>
         <label for="type">Type: *</label>
-        <select name="type" id="type">
+        <select name="type" id="type" [(ngModel)]="selectedMedia.type">
           <option>Book</option>
           <option>Game</option>
           <option>Movie</option>
@@ -26,21 +26,22 @@
       </fieldset>
       <fieldset>
         <label for="title">Title: *</label>
-        <input name="title" id="title" required />
+        <input name="title" id="title" required [(ngModel)]="selectedMedia.title" />
       </fieldset>
       <fieldset>
         <label for="releaseYear">Release Year: </label>
-        <input type="number" name="releaseYear" id="releaseYear" min="1500" />
+        <input type="number" name="releaseYear" id="releaseYear" min="1500" [(ngModel)]="selectedMedia.releaseYear" />
       </fieldset>
       <fieldset>
         <label for="provider">Provider: *</label>
-        <input name="provider" id="provider" required />
+        <input name="provider" id="provider" required [(ngModel)]="selectedMedia.provider" />
       </fieldset>
       <fieldset>
         <label for="rating">5-Star Rating: *</label>
-        <input type="number" name="rating" id="rating" min="1" max="5" />
+        <input type="number" name="rating" id="rating" min="1" max="5" [(ngModel)]="selectedMedia.rating"/>
       </fieldset>
-      <button class="btn btn-primary offset-2">Save</button>
+      <button class="btn btn-primary offset-2">Save</button><button class="btn btn-primary m-2" 
+        (click)="onReset()">Reset</button>
     </form>
   </section>
 </div>

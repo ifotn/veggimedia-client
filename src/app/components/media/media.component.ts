@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 // define a class for the media structure
 export class Media {
@@ -14,7 +15,7 @@ export class Media {
 @Component({
   selector: 'app-media',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, FormsModule, NgIf],
   templateUrl: './media.component.html'
 })
 export class MediaComponent {
@@ -30,5 +31,9 @@ export class MediaComponent {
   onSelect(media: Media): void {
     this.selectedMedia = media;
     console.log(media);
+  }
+
+  onReset(): void {
+    this.selectedMedia = null;
   }
 }
