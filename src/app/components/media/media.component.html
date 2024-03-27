@@ -13,10 +13,10 @@
     </ul>
   </section>
   <section class="col-6">
-    <form *ngIf="selectedMedia">
+    <form>
       <fieldset>
         <label for="type">Type: *</label>
-        <select name="type" id="type" [(ngModel)]="selectedMedia.type">
+        <select name="type" id="type" [(ngModel)]="type">
           <option>Book</option>
           <option>Game</option>
           <option>Movie</option>
@@ -26,22 +26,43 @@
       </fieldset>
       <fieldset>
         <label for="title">Title: *</label>
-        <input name="title" id="title" required [(ngModel)]="selectedMedia.title" />
+        <input name="title" id="title" required [(ngModel)]="title" />
       </fieldset>
       <fieldset>
         <label for="releaseYear">Release Year: </label>
-        <input type="number" name="releaseYear" id="releaseYear" min="1500" [(ngModel)]="selectedMedia.releaseYear" />
+        <input type="number" name="releaseYear" id="releaseYear" min="1500" [(ngModel)]="releaseYear" />
       </fieldset>
       <fieldset>
         <label for="provider">Provider: *</label>
-        <input name="provider" id="provider" required [(ngModel)]="selectedMedia.provider" />
+        <input name="provider" id="provider" required [(ngModel)]="provider" />
       </fieldset>
       <fieldset>
         <label for="rating">5-Star Rating: *</label>
-        <input type="number" name="rating" id="rating" min="1" max="5" [(ngModel)]="selectedMedia.rating"/>
+        <input type="number" name="rating" id="rating" min="1" max="5" [(ngModel)]="rating"/>
       </fieldset>
-      <button class="btn btn-primary offset-2">Save</button><button class="btn btn-primary m-2" 
-        (click)="onReset()">Reset</button>
+      <fieldset>
+        <label for="username">Username: *</label>
+        <input name="username" id="username" required [(ngModel)]="username" />
+      </fieldset>
+      <fieldset>
+        <label for="status">Status: *</label>
+        <select name="status" id="status" [(ngModel)]="status">
+          <option>Completed</option>
+          <option>In-Progress</option>
+          <option>On My List</option>
+        </select>
+      </fieldset>
+      <button class="btn btn-primary offset-2" (click)="saveMedia();">
+        Save
+      </button>
+      <button class="btn btn-primary m-2" (click)="deleteMedia();">
+        Delete
+      </button>
+      <button class="btn btn-primary m-2" 
+        (click)="onReset()">
+        Reset
+      </button>
+      <input type="hidden" name="_id" id="_id" [(ngModel)]="_id" />
     </form>
   </section>
 </div>
