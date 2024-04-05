@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
-    serverUrl: 'http://localhost:3000/v1/api'
+    production: true,
+    serverUrl: 'https://veggimedia-server.onrender.com/v1/api'
 };
